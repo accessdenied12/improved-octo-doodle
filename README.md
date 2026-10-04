@@ -343,14 +343,4 @@ apksigner verify --verbose app-release-signed.apk
 - [ ] **Avoid Destructive Bulk Deletion**: The existing code calls `deleteCollection()` on every sync interval before re-inserting records. Instead, use document IDs keyed by unique telephony IDs (e.g., SMS message ID or call log ID) with `set(..., SetOptions.merge())` to prevent redundant writes and unnecessary Firestore read/write costs.
 - [ ] **Authentication & Security Rules**: Implement Firebase Anonymous Authentication (`FirebaseAuth.signInAnonymously()`) and configure Firestore Security Rules so client devices can only write to their own device document/subcollection (`devices/{deviceId}/...`).
 
----
 
-## Legal & Ethical Disclaimer
-
-> [!CAUTION]
-> This application incorporates capabilities typically categorized as stalkerware or surveillance software (silent icon hiding, call log exfiltration, SMS harvesting, and notification snooping).
->
-> 1. **Legal Compliance**: Installing surveillance software on a device without the express, informed consent of the device owner or user is illegal under wiretapping, computer crime, and data privacy legislation in most jurisdictions.
-> 2. **Google Play Policy**: Apps that conceal their presence, hide launcher icons, or collect telephony/SMS data without meeting strict policy exemptions are strictly prohibited and will be flagged by Google Play Protect as potentially harmful applications (PHA).
->
-> This codebase should only be analyzed for security research, policy testing, and educational purposes.
